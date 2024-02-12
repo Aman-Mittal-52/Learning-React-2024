@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // My Code goes here;
+
+    function clicked(){
+        console.log("button clicked...");
+    }
+
+    let innerH3 = React.createElement("h3",{},"Learning React")
+    let innerP_Tag = React.createElement("p",{},"Day 2")
+    let innerButton = React.createElement("button",{onClick : clicked},"Click Me")
+    
+    // JSX
+    const element = React.createElement("div", {
+        id: "container",
+        className: "main",
+        children: [innerH3,innerP_Tag,innerButton]
+    })
+
+
+    const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+
+    rootElement.render(element)
+</script>
+
+</html>
