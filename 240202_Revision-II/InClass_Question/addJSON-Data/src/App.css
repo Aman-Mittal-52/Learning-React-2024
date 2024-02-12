@@ -1,0 +1,9 @@
+.data{
+    border: 2px solid royalblue;
+    margin: 10px;
+    padding: 10px;
+}
+
+.data:nth-child(odd){
+    background-color: crimson;
+}
