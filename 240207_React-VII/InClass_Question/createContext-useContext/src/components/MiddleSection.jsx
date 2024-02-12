@@ -1,5 +1,5 @@
 import Sidebar from "./Sidebar";
-import Main from "./Main";
+import Main from "./InnerMain";
 
 export default function MiddleSection() {
   return (
