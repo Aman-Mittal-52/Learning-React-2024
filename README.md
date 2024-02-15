@@ -34,16 +34,31 @@
   - Forms in React
   <hr>
 - React-V
-  - Lifecycle of React component
-  - Side Effects
+  - Lifecycle of React component basic
   - useEffect and Mount Phase
   - useEffect and Update Phase
+  - useEffect Dependency Array
+  <hr>
+- React-VI
+  - Components Lifecycle
+    - Mount phase
+    - Update phase
+    - Unmount phase
+  - API Fetch
+  - Condional Render
+  <hr>
+- React-VII
+  - Context API
+  - useRef hook
+  - Props Drilling
   <hr>
 - React-VIII
+  - Browser
   - React Links
   - React Route
   - React Routes
   <hr>
 - React-IX
-  - use
+  - useReducer hook
+  - Complex State handling
   <hr>
