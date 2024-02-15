@@ -17,17 +17,15 @@ export default function Login() {
                 body: JSON.stringify({ email, password })
             });
             let data = await res.json();
-            if (res.ok) {
-                setAuth((prevAuth) => !prevAuth)
-                setToken(data.token)
-            }
+            data.token ? setAuth(true) : null;
+            setToken(data.token);
         } catch (error) {
             console.log(error);
         }
     }
     return (
         <div>
-            <form data-testid="auth_form"  >
+            <form data-testid="auth_form"  onSubmit={handleSubmit}>
                 <input
                     onChange={(e) => { setEmail(e.target.value) }}
                     type="email"
@@ -42,7 +40,7 @@ export default function Login() {
                     placeholder="Enter password"
                 />
                 <br />
-                <input type="submit" onClick={handleSubmit} />
+                <input type="submit"  />
 
             </form>
         </div>
