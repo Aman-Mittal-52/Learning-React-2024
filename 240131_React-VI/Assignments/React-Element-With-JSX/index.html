@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>React Template</title>
+	</head>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+	<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script type="text/babel">
+		// Your task starts here
+		// Basic Level
+
+		function App(){
+			return (
+				<>
+					<p className="bl">Seize the day</p>
+					<p className="il">{quote}</p>
+					<p className="al">{isRender ? "Seize the day" : "Make the most of it"}</p>
+				</>
+				)
+		}
+		
+		// Inntermidiate Level
+		
+		let quote = "Seize the day"
+
+		// Advanced Level
+	
+		let isRender = false;
+    // Wrap all the above jsx elements by wrapping inside a container div
+    // Render the container div inside the div with id 'root'
+		
+		ReactDOM.createRoot(document.getElementById("root")).render(<App/>)
+		
+	</script>
+</html>
