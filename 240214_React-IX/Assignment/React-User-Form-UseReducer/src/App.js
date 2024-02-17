@@ -13,7 +13,39 @@ const initialState = {
 // the reset action type should show reset the state to initial state
 // the default case should throw an Error with message `invalid action type`.
 const reducer = (state, action) => {
-
+  switch (action.type) {
+    case "name": {
+      return {
+        ...state,
+        ...action.payload
+      }
+    }
+    case "gender": {
+      return {
+        ...state,
+        ...action.payload
+      }
+    }
+    case "role": {
+      return {
+        ...state,
+        ...action.payload
+      }
+    }
+    case "maritalStatus": {
+      return {
+        ...state,
+        ...action.payload
+      }
+    }
+    case 'reset':{
+      return {...action.payload}
+    }
+    default:{
+      throw new Error("invalid action type")
+    }
+      break;
+  }
 };
 
 function App() {
@@ -22,15 +54,22 @@ function App() {
   //store the data in the below variable on clicking the submit button, to render, the data in the UI.
   const [submittedData, setSubmittedData] = useState([]);
 
-  const [state, dispatch] = useReducer(reducer, {
-    name: "",
-    gender: "",
-    role: "",
-    isMarried: false
-  })
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  function handleSubmit() {
+  function handleChange(e, type) {
+    dispatch({
+      type: type,
+      payload: {
+        [e.target.name]: e.target.value
+      }
+    })
+  }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    setSubmittedData([...submittedData, state])
+    dispatch({type:"reset",payload:{...initialState}})
   }
 
   return (
@@ -46,28 +85,16 @@ function App() {
               <input
                 type="text"
                 name="name"
-                onChange={(e) => {
-                  dispatch({
-                    type: "INPUT_NAME",
-                    payload: e.target.value
-                  })
-                }
-                } />
+                onChange={(e) => { handleChange(e, "name") }} />
             </div>
             <div className="gender-wrapper" data-testid="gender-wrapper">
               <label>Gender</label>
               <select
                 name="gender"
                 data-testid="gender-select"
-                onChange={(e) => {
-                  dispatch({
-                    type: "INPUT_GENDER",
-                    payload: e.target.value
-                  })
-                }
-                }>
+                onChange={(e) => { handleChange(e, "gender") }}>
                 <option value="Male">Male</option>
-                <option value="Female">Felmale</option>
+                <option value="Female">Female</option>
                 <option value="Prefer Not to Say">Prefer Not to Say</option>
               </select>
             </div>
@@ -76,13 +103,7 @@ function App() {
               <select
                 name="role"
                 data-testid="role-select"
-                onChange={(e) => {
-                  dispatch({
-                    type: "INPUT_ROLE",
-                    payload: e.target.value
-                  })
-                }
-                }>
+                onChange={(e) => { handleChange(e, "role") }}>
                 <option value="FrontEnd Developer">FrontEnd Developer</option>
                 <option value="BackEnd Developer">BackEnd Developer</option>
                 <option value="FullStack Developer">FullStack Developer</option>
@@ -96,10 +117,14 @@ function App() {
               <div>
                 {/* keep an input tag with type as "checkbox" and name as "maritalStatus" */}
                 <input
-                  type={"checkbox"} name="isMarried" onChange={(e)=>{dispatch({
-                    type:"INPUT_ISMARRIED",
-                    payload:e.target.checked
-                  })}}/>
+                  type={"checkbox"} name="maritalStatus" onChange={(e) => {
+                    dispatch({
+                      type: "maritalStatus",
+                      payload: {
+                        [e.target.name]: e.target.checked
+                      }
+                    })
+                  }} />
                 <label>Married</label>
               </div>
             </div>
@@ -108,29 +133,35 @@ function App() {
             </div>
           </form>
         </div>
-        <h2 data-testid="no-user-container"></h2>
+        {
+          submittedData.length === 0 ?
+            <h2 data-testid="no-user-container">no users found</h2> :
+            (
+              <table data-testid="user-container">
+                <thead>
+                  <tr>
+                    <th>S.no</th>
+                    <th>User</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th>Marital Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    submittedData.map((ele, ind)=>{
+                      return(
+                        <UserRow key={ind+1} name={ele.name} gender={ele.gender} role={ele.role} maritalStatus={ele.maritalStatus} id={ind+1} />
+                      )
+                    })
+                  }
+                  {/* append the data here with the help of the `tr` and `UserRow` components. */}
+                </tbody>
+              </table>
+            )
+        }
         {/* add table or h2 tag as per the problem statement */}
-        <table data-testid="user-container">
-          <thead>
-            <tr>
-              <th>S.no</th>
-              <th>User</th>
-              <th>Gender</th>
-              <th>Role</th>
-              <th>Marital Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>S.no</td>
-              <td>User</td>
-              <td>Gender</td>
-              <td>Role</td>
-              <td>Marital Status</td>
-            </tr>
-            {/* append the data here with the help of the `tr` and `UserRow` components. */}
-          </tbody>
-        </table>
+
       </div>
     </div>
   );

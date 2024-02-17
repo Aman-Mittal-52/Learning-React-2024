@@ -22,8 +22,16 @@ form div {
 }
 
 table{
-  border: 2px solid crimson;
-  border-radius: 60px;
-  padding: 60px;
-  margin: auto;
+  border: 5px solid black;
+  margin: 50px auto;
+}
+
+thead{
+  background-color: #9e9b9b;
+}
+tr:nth-child(even){
+  background: #e0e0e0;
+  >*{
+    padding: 10px;
+  }
 }
