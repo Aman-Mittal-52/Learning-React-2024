@@ -1,0 +1,10 @@
+
+#content-box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-flow: row;
+}
+
+.card{
+    text-align: center;
+}
