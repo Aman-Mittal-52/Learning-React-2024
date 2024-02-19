@@ -20,7 +20,6 @@ const MovieList = () => {
       url = `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/movies?_sort=year&_order=${sortBy}`;
     }
     else if(filterBy !== null && sortBy !== null){
-      console.log(("true hi bhen ki lodi condition"));
       url = `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/movies?type=${filterBy}&_sort=year&_order=${sortBy}`;
     }
     try {
