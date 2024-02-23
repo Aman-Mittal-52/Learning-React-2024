@@ -87,9 +87,27 @@ function App() {
     }
   }
 
+  async function paramsDataAxios() {
+    try {
+      
+      const config = {
+        url: "https://jsonplaceholder.typicode.com/posts",
+        params:{
+          page:2
+        }
+      }
+
+      const res = await axios(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <button onClick={fetchDataAxios}>Get Post</button>
+      <button onClick={paramsDataAxios}>Get Post customly</button>
       <button onClick={postRequest}>Make Post Req..</button>
       <button onClick={putRequest}>Make Put Req..</button>
       <button onClick={patchRequest}>Make Patch Req..</button>
