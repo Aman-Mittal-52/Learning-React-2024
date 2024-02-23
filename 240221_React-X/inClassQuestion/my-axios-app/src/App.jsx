@@ -35,10 +35,30 @@ function App() {
     }
   }
 
+  async function putRequest() {
+    try {
+      
+      const config = {
+        method: "put",
+        url: "https://reqres.in/api/users/2",
+        data: {
+          name: "Aman",
+          job: "Blowing"
+        }
+      }
+
+      const res = await axios(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <button onClick={fetchDataAxios}>Get Post</button>
       <button onClick={postRequest}>Make Post Req..</button>
+      <button onClick={putRequest}>Make Put Req..</button>
     </>
   )
 }
