@@ -15,10 +15,30 @@ function App() {
     }
   }
 
+  async function postRequest() {
+    try {
+      
+      const config = {
+        method: "post",
+        url: "https://jsonplaceholder.typicode.com/posts",
+        data: {
+          id: 103424,
+          title: "Bang...Bang",
+          body: "boom bAAAmmmmmmmmm"
+        }
+      }
+
+      const res = await axios(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
       <button onClick={fetchDataAxios}>Get Post</button>
+      <button onClick={postRequest}>Make Post Req..</button>
     </>
   )
 }
