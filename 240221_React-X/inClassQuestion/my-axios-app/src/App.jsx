@@ -72,12 +72,28 @@ function App() {
     }
   }
 
+  async function deleteRequest() {
+    try {
+      
+      const config = {
+        method: "delete",
+        url: "https://jsonplaceholder.typicode.com/posts/1"
+      }
+
+      const res = await axios(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <button onClick={fetchDataAxios}>Get Post</button>
       <button onClick={postRequest}>Make Post Req..</button>
       <button onClick={putRequest}>Make Put Req..</button>
       <button onClick={patchRequest}>Make Patch Req..</button>
+      <button onClick={deleteRequest}>Make Delete Req..</button>
     </>
   )
 }
