@@ -9,6 +9,24 @@ function App() {
   const BASE_DEV_URL = import.meta.env.VITE_BASE_DEV;
   const currentEnvironment = import.meta.env.MODE
 
+  const baseURL = currentEnvironment === 'production' ? BASE_PRODUCTION_URL : BASE_DEV_URL;
+  // if the environments is development then the baseURL become :
+  // https://localhost:3000
+  // if the environments is production then the baseURL become :
+  //example : https://jsonplaceholder.typicode.com/posts
+  // The online API URL used for production basis
+
+  const configExampleWithAll = {
+    method: "post",
+    baseURL: baseURL, // it could be localhost or jsonplaceholder.typicode.com depends upon the environment.
+    url: "/posts",
+    data: {
+      id: 103424,
+      title: "Bang...Bang",
+      body: "boom bAAAmmmmmmmmm"
+    }
+  }
+
   async function fetchDataAxios() {
     try {
       let res = await axios.get("https://jsonplaceholder.typicode.com/posts");
