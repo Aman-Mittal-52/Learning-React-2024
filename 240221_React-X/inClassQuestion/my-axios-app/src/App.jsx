@@ -54,11 +54,30 @@ function App() {
     }
   }
 
+  async function patchRequest() {
+    try {
+      
+      const config = {
+        method: "patch",
+        url: "https://jsonplaceholder.typicode.com/posts/1",
+        data: {
+          title: "12 march ko dhoom machegi"
+        }
+      }
+
+      const res = await axios(config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <button onClick={fetchDataAxios}>Get Post</button>
       <button onClick={postRequest}>Make Post Req..</button>
       <button onClick={putRequest}>Make Put Req..</button>
+      <button onClick={patchRequest}>Make Patch Req..</button>
     </>
   )
 }
