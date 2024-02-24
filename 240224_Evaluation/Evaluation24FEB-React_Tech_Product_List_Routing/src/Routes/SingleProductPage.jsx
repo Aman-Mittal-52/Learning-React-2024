@@ -40,12 +40,12 @@ function SingleProductPage() {
             <div >
                 <img data-testid="product-image" src={data.img} alt={data.brand} />
             </div>
-            <div data-testid="product-category">{data.category}
+            <div data-testid="product-category">Category: {data.category}
             </div>
 
-            <div data-testid="product-details">{data.details}
+            <div data-testid="product-details">Details: {data.details}
             </div>
-            <div data-testid="product-price">{Float32Array.price}
+            <div data-testid="product-price">Price: {Float32Array.price}
             </div>
 
         </div>
