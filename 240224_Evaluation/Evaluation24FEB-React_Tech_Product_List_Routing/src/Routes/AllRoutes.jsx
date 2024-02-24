@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { AuthContext } from '../Context/AuthContext';
 import Dashboard from './Dashboard';
@@ -17,7 +17,7 @@ function AllRoutes() {
         <Route path='/' element={<Home/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/dashboard/:product_id' element={authState.isAuth ? <SingleProductPage/> : <Login />}/>
+        <Route path='/dashboard/:product_id' element={authState.isAuth ? <SingleProductPage/> : <Navigate to='/login' />}/>
         <Route path='*' element={<h1>Error page not found</h1>}/>
       </Routes>
     </div>

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import Loader from '../Components/Loader';
+
 function SingleProductPage() {
 
     const { product_id } = useParams();
@@ -23,7 +25,7 @@ function SingleProductPage() {
 
     useEffect(() => {
         fetchSingleProduct()
-    })
+    },[])
 
     if (loading) {
         return <Loader />
