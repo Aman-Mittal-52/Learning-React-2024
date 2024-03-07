@@ -1,0 +1,17 @@
+
+
+
+#box{
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form{
+  justify-content: space-evenly;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
