@@ -45,7 +45,7 @@ const Todos = () => {
       {/* map through the todos array and display the tasks */}
       <div data-testid="todos-wrapper">
         {Todos.map((todo, i) => (
-          <p key={i}>{todo.title} : {todo.status.toString()}</p>
+          <p key={i}>{todo.title} : {todo.status?"True":"False"}</p>
         ))}
       </div>
     </div>
