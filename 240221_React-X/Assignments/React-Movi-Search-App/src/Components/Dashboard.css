@@ -1,0 +1,10 @@
+[data-testid="dashboard"]{
+    text-align: center;
+    background-color: aquamarine;
+}
+
+[data-testid="movie_results"]{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+}
