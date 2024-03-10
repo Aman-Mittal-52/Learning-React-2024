@@ -47,6 +47,14 @@
   - API Fetch
   - Condional Render
   <hr>
+- Revision-II
+  - Fetch reqest
+    - POST
+    - PATCH
+    - PUT
+    - GET
+    - DELETE
+  <hr>
 - React-VII
   - Context API
   - useRef hook
@@ -57,8 +65,15 @@
   - React Links
   - React Route
   - React Routes
+  - useParams hook
   <hr>
 - React-IX
   - useReducer hook
   - Complex State handling
   <hr>
+- React-X
+  - Axios 
+  - Environment Variables
+  <hr>
+- React-XI
+  - Chakra-UI
